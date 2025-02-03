@@ -14,13 +14,15 @@ app.get("/oc", async (req, res) => {
   console.log({ type, symbol });
 
   try {
-    const resp = await axios.get(BASE_URL, {
-      headers: { "User-Agent": "PostmanRuntime/7.43.0", Accept: "*/*" },
-    });
-    const COOKIE_HEADER = COOKIE_UTILS.getCookiesFromArray(
-      resp.headers["set-cookie"]
-    );
+    // const resp = await axios.get(BASE_URL, {
+    //   headers: { "User-Agent": "PostmanRuntime/7.43.0", Accept: "*/*" },
+    // });
+    // const COOKIE_HEADER = COOKIE_UTILS.getCookiesFromArray(
+    //   resp.headers["set-cookie"]
+    // );
 
+    const COOKIE_HEADER = "";
+    
     const resp_fin = await axios.get(
       BASE_URL + "/api/" + OPT_CFG + type + "?symbol=" + symbol,
       {
