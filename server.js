@@ -35,6 +35,7 @@ app.get("/oc", async (req, res) => {
     );
     res.send(resp_fin.data);
   } catch (error) {
+    console.log(error);
     res.send({ error_msg: error.message });
   }
 });
