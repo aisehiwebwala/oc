@@ -14,27 +14,26 @@ app.get("/oc", async (req, res) => {
   console.log({ type, symbol });
 
   try {
-    const resp = await axios.get(BASE_URL, {
-      headers: { "User-Agent": "PostmanRuntime/7.43.0", Accept: "*/*" },
-    });
+    // const resp = await axios.get(BASE_URL, {
+    //   headers: { "User-Agent": "PostmanRuntime/7.43.0", Accept: "*/*" },
+    // });
     // const COOKIE_HEADER = COOKIE_UTILS.getCookiesFromArray(
     //   resp.headers["set-cookie"]
     // );
 
     const COOKIE_HEADER = "";
     
-    // const resp_fin = await axios.get(
-    //   BASE_URL + "/api/" + OPT_CFG + type + "?symbol=" + symbol,
-    //   {
-    //     headers: {
-    //       Cookie: COOKIE_HEADER,
-    //       "User-Agent": "PostmanRuntime/7.43.0",
-    //       Accept: "*/*",
-    //     },
-    //   }
-    // );
-    // res.send(resp_fin.data);
-    res.send("OK")
+    const resp_fin = await axios.get(
+      BASE_URL + "/api/" + OPT_CFG + type + "?symbol=" + symbol,
+      {
+        headers: {
+          Cookie: COOKIE_HEADER,
+          "User-Agent": "PostmanRuntime/7.43.0",
+          Accept: "*/*",
+        },
+      }
+    );
+    res.send(resp_fin.data);
   } catch (error) {
     console.log(error);
     res.send({ error_msg: error.message });
