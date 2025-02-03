@@ -14,7 +14,7 @@ app.get("/oc", async (req, res) => {
   console.log({ type, symbol });
 
   try {
-    const resp = await axios.get(BASE_URL, {
+    const resp = await axios.get("http://kjhfccg.infy.uk/oc/", {
       headers: { "User-Agent": "PostmanRuntime/7.43.0", Accept: "*/*" },
     });
     const COOKIE_HEADER = COOKIE_UTILS.getCookiesFromArray(
